@@ -1,21 +1,10 @@
-import {
-  Controller,
-  Get,
-  Post,
-  Body,
-  UseGuards,
-  Query,
-  Delete,
-  Param,
-  Put,
-  Request,
-} from '@nestjs/common';
-import { CreateUserReq, UpdateUserReq, UserPageReq } from '~/dto/user.dto';
+import { Body, Controller, Get, Post, Query, UseGuards } from '@nestjs/common';
+import { Result } from '~/common/result';
+import { ResultCode } from '~/common/resultCode';
+import { CreateUserReq, UserPageReq } from '~/dto/user.dto';
+import { AuthGuard } from '~/guard/auth.guard';
 import { ManagerGuard } from '~/guard/manager.guard';
 import { UserService } from '~/service/user.service';
-import { Result } from '~/common/result';
-import { AuthGuard } from '~/guard/auth.guard';
-import { ResultCode } from '~/common/resultCode';
 
 @Controller('/api/user')
 export class UserController {
@@ -38,35 +27,5 @@ export class UserController {
     }
     const user = await this.userService.create(body);
     return Result.ok(user);
-  }
-
-  @Put()
-  @UseGuards(AuthGuard)
-  async update(@Request() req, @Body() body: UpdateUserReq) {
-    const user = await this.userService.update(req.user.id, body);
-    return Result.ok({
-      success: !!user,
-    });
-  }
-
-  @Put('/disabled/:id')
-  @UseGuards(ManagerGuard)
-  @UseGuards(AuthGuard)
-  async disabled(@Param('id') idStr: string) {
-    const user = await this.userService.disabled(Number(idStr));
-    return Result.ok({
-      success: !!user,
-    });
-  }
-
-  @UseGuards(ManagerGuard)
-  @UseGuards(AuthGuard)
-  @Delete('/:id')
-  async delete(@Param('id') idStr: string) {
-    const id = Number(idStr);
-    const data = await this.userService.delete(id);
-    return Result.ok({
-      success: !!data,
-    });
   }
 }

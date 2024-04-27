@@ -1,0 +1,41 @@
+export function ignores() {
+  return [
+    {
+      ignores: [
+        '**/node_modules',
+        '**/dist',
+        '**/package-lock.json',
+        '**/yarn.lock',
+        '**/pnpm-lock.yaml',
+        '**/bun.lockb',
+        '**/output',
+        '**/.storybook-build',
+        '**/storybook-static',
+        '**/.storybook',
+        '**/coverage',
+        '**/temp',
+        '**/.vitepress/cache',
+        '**/.nuxt',
+        '**/.next',
+        '**/.vercel',
+        '**/.changeset',
+        '**/.idea',
+        '**/.cache',
+        '**/.output',
+        '**/.vite-inspect',
+
+        '**/CHANGELOG*.md',
+        '**/*.min.*',
+        '**/LICENSE*',
+        '**/__snapshots__',
+        '**/auto-import?(s).d.ts',
+        '**/components.d.ts',
+        '**/eslint.config.js',
+        '**/tailwind.config.js',
+        '**/.stylelintrc.js',
+        '**/.umi',
+        '**/.umi-production',
+      ],
+    },
+  ];
+}

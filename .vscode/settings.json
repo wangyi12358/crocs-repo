@@ -1,7 +1,37 @@
 {
+  "eslint.experimental.useFlatConfig": true,
+  "eslint.enable": true,
+  "eslint.format.enable": true,
   "eslint.workingDirectories": [
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit",
+    "source.fixAll.eslint": "explicit"
+  },
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[javascript]": {
+    "editor.formatOnSave": false
+  },
+  "[javascriptreact]": {
+    "editor.formatOnSave": false
+  },
+  "[typescript]": {
+    "editor.formatOnSave": false
+  },
+  "[typescriptreact]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "dbaeumer.vscode-eslint"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+    ["cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "commentTranslate.multiLineMerge": true
 }

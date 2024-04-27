@@ -51,11 +51,11 @@ model ProductColorSize {
 }
 
 model Order {
-  id       Int    @id @default(autoincrement())
-  colorId  Int    @db.Integer
-  sizeId   Int    @db.Integer
-  quantity Int    @db.Integer
-  status   String @db.VarChar(255)
+  id        Int      @id @default(autoincrement())
+  colorId   Int      @db.Integer
+  sizeId    Int      @db.Integer
+  quantity  Int      @db.Integer
+  status    String   @db.VarChar(255)
   createdAt DateTime @default(now())
 
   @@map("order")

@@ -9,16 +9,65 @@ datasource db {
 }
 
 model User {
-  id        Int       @id @default(autoincrement())
-  createdAt DateTime  @default(now()) @map("created_at")
-  updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at")
-  age       Int
-  gender    Int // 1男性 0女性
-  status    Int       @default(1) // 用户状态1正常 0冻结
-  username  String    @unique @db.VarChar(255)
-  password  String    @db.VarChar(255)
-  role      Int       @default(1) // 1为普通用户，2为管理员用户
+  id       Int    @id @default(autoincrement())
+  username String @unique @db.VarChar(255)
+  password String @db.VarChar(255)
 
   @@map("user")
+}
+
+model Product {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(255)
+  price Float  @db.DoublePrecision
+
+  @@map("product")
+}
+
+model Color {
+  id     Int    @id @default(autoincrement())
+  images String @db.VarChar(255)
+  name   String @db.VarChar(255)
+
+  @@map("color")
+}
+
+model Size {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(255)
+
+  @@map("size")
+}
+
+model ProductColorSize {
+  id        Int @id @default(autoincrement())
+  productId Int @db.Integer
+  colorId   Int @db.Integer
+  sizeId    Int @db.Integer
+  quantity  Int @db.Integer
+
+  @@unique([productId, colorId, sizeId])
+  @@map("product_color_size")
+}
+
+model Order {
+  id        Int      @id @default(autoincrement())
+  colorId   Int      @db.Integer
+  sizeId    Int      @db.Integer
+  quantity  Int      @db.Integer
+  status    String   @db.VarChar(255)
+  createdAt DateTime @default(now())
+
+  @@map("order")
+}
+
+model SubOrder {
+  id                 Int     @id @default(autoincrement())
+  orderId            Int     @db.Integer
+  productColorSizeId Int     @db.Integer
+  weChat             String  @db.VarChar(255)
+  gooFish            String? @db.VarChar(255)
+  paid               Boolean @db.Boolean
+
+  @@map("sub_order")
 }

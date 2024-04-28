@@ -1,4 +1,3 @@
-import { Button } from '@/lib/components/button';
 import Link from 'next/link';
 
 export default function Component() {
@@ -25,7 +24,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>UV protection, durable frame</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$29.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>
@@ -50,7 +48,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>Stylish and practical, adjustable strap</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$49.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>
@@ -75,7 +72,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>High-quality sound, long battery life</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$79.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>
@@ -100,7 +96,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>Timeless design, stainless steel case</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$59.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>
@@ -125,7 +120,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>Powerful sound, long battery life</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$99.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>
@@ -150,7 +144,6 @@ export default function Component() {
           <p className='text-gray-500 dark:text-gray-400 mb-4'>Comfortable and adjustable, supports good posture</p>
           <div className='flex items-center justify-between'>
             <span className='text-xl font-bold text-gray-900 dark:text-gray-50'>$199.99</span>
-            <Button size='sm'>Add to Cart</Button>
           </div>
         </div>
       </div>

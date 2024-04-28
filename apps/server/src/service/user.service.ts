@@ -40,17 +40,6 @@ export class UserService {
     });
   }
 
-  disabled(id: number) {
-    return this.prismaService.user.update({
-      where: {
-        id,
-      },
-      data: {
-        status: 0,
-      },
-    });
-  }
-
   update(id: number, req: UpdateUserReq) {
     return this.prismaService.user.update({
       where: {

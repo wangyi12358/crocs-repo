@@ -1,5 +1,5 @@
 {
-  "name": "nest-admin",
+  "name": "@repo/server",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -29,6 +29,7 @@
     "@nestjs/core": "^9.0.0",
     "@nestjs/jwt": "^10.0.3",
     "@nestjs/platform-express": "^9.0.0",
+    "@prisma/client": "4.16.2",
     "class-validator": "^0.14.0",
     "js-yaml": "^4.1.0",
     "prisma": "^4.14.1",

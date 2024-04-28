@@ -6,7 +6,9 @@
     "dev": "turbo dev",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "dev:server": "turbo dev"
+    "dev:server": "turbo dev --filter @repo/server",
+    "dev:admin": "turbo dev --filter @repo/admin",
+    "dev:web": "turbo dev --filter @repo/web"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
@@ -19,7 +21,7 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.6",
     "prettier": "^3.2.5",
-    "turbo": "latest"
+    "turbo": "1.11.0"
   },
   "packageManager": "pnpm@8.9.0",
   "engines": {

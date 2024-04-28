@@ -16,7 +16,7 @@ export class UserController {
     return Result.ok(data);
   }
 
-  @UseGuards(AuthGuard)
+  // @UseGuards(AuthGuard)
   @Post()
   async create(@Body() body: CreateUserReq) {
     const isExist = await this.userService.findOneByUsername(body.username);

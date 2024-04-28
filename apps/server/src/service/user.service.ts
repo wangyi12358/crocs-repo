@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { User } from '@prisma/client';
-import crypto from 'crypto';
 import { CreateUserReq, UpdateUserReq, UserPageReq } from '~/dto/user.dto';
 import { PrismaService } from './prisma.service';
 
@@ -33,10 +32,7 @@ export class UserService {
 
   create(req: CreateUserReq) {
     return this.prismaService.user.create({
-      data: {
-        username: req.username,
-        password: this.passwordMd5(req.password),
-      },
+      data: req,
     });
   }
 
@@ -61,12 +57,9 @@ export class UserService {
     return this.prismaService.user.findFirst({
       where: {
         username,
-        password: this.passwordMd5(password),
+        password,
       },
     });
   }
 
-  passwordMd5(password: string): string {
-    return crypto.createHash('md5').update(password).digest('hex');
-  }
 }

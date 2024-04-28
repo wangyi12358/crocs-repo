@@ -7,9 +7,6 @@
     "assets": [{
       "include": "../config/*.yaml",
       "outDir": "./dist/config"
-    }, {
-      "include": "../prisma/client",
-      "outDir": "./dist/prisma"
     }]
   }
 }

@@ -1,6 +1,5 @@
 generator client {
   provider = "prisma-client-js"
-  output   = "./client"
 }
 
 datasource db {
@@ -41,10 +40,10 @@ model Size {
 
 model ProductColorSize {
   id        Int @id @default(autoincrement())
-  productId Int @db.Integer
-  colorId   Int @db.Integer
-  sizeId    Int @db.Integer
-  quantity  Int @db.Integer
+  productId Int @db.Int
+  colorId   Int @db.Int
+  sizeId    Int @db.Int
+  quantity  Int @db.Int
 
   @@unique([productId, colorId, sizeId])
   @@map("product_color_size")
@@ -52,9 +51,9 @@ model ProductColorSize {
 
 model Order {
   id        Int      @id @default(autoincrement())
-  colorId   Int      @db.Integer
-  sizeId    Int      @db.Integer
-  quantity  Int      @db.Integer
+  colorId   Int      @db.Int
+  sizeId    Int      @db.Int
+  quantity  Int      @db.Int
   status    String   @db.VarChar(255)
   createdAt DateTime @default(now())
 
@@ -63,11 +62,11 @@ model Order {
 
 model SubOrder {
   id                 Int     @id @default(autoincrement())
-  orderId            Int     @db.Integer
-  productColorSizeId Int     @db.Integer
+  orderId            Int     @db.Int
+  productColorSizeId Int     @db.Int
   weChat             String  @db.VarChar(255)
   gooFish            String? @db.VarChar(255)
-  paid               Boolean @db.Boolean
+  paid               Boolean @db.TinyInt
 
   @@map("sub_order")
 }

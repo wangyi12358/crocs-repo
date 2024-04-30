@@ -21,4 +21,4 @@ jobs:
 
       # 连接到远程服务器并执行脚本
       - name: SSH into server and execute script
-        run: ssh -i $HOME/.ssh/id_rsa username@hostname "sh /crocs/crocs-repo/server.sh '${{ env.TAG_NAME }}'"
+        run: ssh -i $HOME/.ssh/id_rsa root@${{ secrets.SSH_HOST }} "sh /crocs/crocs-repo/server.sh '${{ env.TAG_NAME }}'"

@@ -17,7 +17,7 @@ fi
 
 git pull origin $BRANCH_NAME
 
-cd ../apps/server
+cd ./apps/server
 
 pnpm install
 

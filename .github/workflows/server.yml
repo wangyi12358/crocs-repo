@@ -1,0 +1,24 @@
+name: Deploy On Tag
+
+on:
+  push:
+    tags:
+      - 's*'  # 监听以 's' 开头的标签
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # 设置 SSH agent 并添加 PEM 文件
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # 连接到远程服务器并执行脚本
+      - name: SSH into server and execute script
+        run: ssh -i $HOME/.ssh/id_rsa username@hostname "sh /crocs/crocs-repo/server.sh '${{ env.TAG_NAME }}'"
